@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<Container version="2">
+    <Name>Garmin Fetch Script</Name>
+    <Beta>false</Beta>
+    <Category>Utilities</Category>
+    <Repository>htpp://10.0.0.60:5000/garmin-fetch-script:latest</Repository>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <ExtraParams></ExtraParams>
+    <Shell>bash</Shell>
+    <Overview>This container fetches Garmin Connect data (steps, sleep, stress, body battery, workouts) and exposes it via a Flask API.</Overview>
+    <WebUI>http://10.0.0.60:5000</WebUI>
+    <Icon>https://via.placeholder.com/150</Icon>
+    <Config Name="Port: API" Target="5000" Default="5001" Mode="tcp" Description="API Port for the application." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Path: /data" Target="/data" Default="/mnt/user/appdata/garmin-data" Mode="rw" Description="Persistent data path." Type="Path" Display="always" Required="true" Mask="false"/>
+    <Config Name="Variable: GARMIN_EMAIL" Target="GARMIN_EMAIL" Default="your-email@example.com" Description="Your Garmin Connect email address for login." Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="Variable: GARMIN_PASSWORD" Target="GARMIN_PASSWORD" Default="your-password" Description="Your Garmin Connect password for login." Type="Variable" Display="always" Required="true" Mask="true"/>
+</Container>
